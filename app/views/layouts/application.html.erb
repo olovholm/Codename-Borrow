@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>Borrow</title>
-  <%= stylesheet_link_tag    "application" %>
+	<%= stylesheet_link_tag		 "blueprint/print", :media => "print" %>
+	<%= stylesheet_link_tag		 "blueprint/screen", :media => "screen"%>
+	<%= stylesheet_link_tag		 "borrow"%>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav id="top_menu">
+		<ul>
+			<li><%= link_to "Registerer", :controller => "user", :action => "register"%></li>
+			<li><%= link_to "Logg inn", :controller => "user", :action => "login" %></li>
+		</ul>
+	</nav>
+	<div id="wrapper">
+		<header>
+			<h1>Byttelåne</h1>
+		</header>
 
 <%= yield %>
+
+	</div>
+	<footer>
+	<p>This page is made by Ola Loevholm</p>	
+	</footer>
 
 </body>
 </html>
