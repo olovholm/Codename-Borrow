@@ -1,0 +1,30 @@
+<%= form_for @user, :url => "/user/create" do |f| %>
+	<fieldset>
+		<legend>Brukerkonto:</legend>
+			<%=f.label :username, "Ønsket brukernavn"%>
+			<%=f.text_field :username%><br />
+			<%= f.label :password, "Velg passord" %>
+			<%=f.password_field :password%><br />
+			<%=f.label :password_confirmation, "Gjenta passord"%>
+			<%=f.password_field :password_confirmation%><br />
+	</fieldset>
+	<fieldset>
+		<legend>Om deg:</legend>
+	<%=f.label :fullname, "Fullt navn" %>
+	<%=f.text_field :fullname%><br />
+	<%=f.label :email, "E-post"%>
+	<%=f.text_field :email%><br />
+	<%=f.label :email_confirmation, "Bekreft e-post"%>
+	<%=f.text_field :email_confirmation%><br />
+	<%=f.label :postcode,"Postnummer"%>
+	<%=f.text_field :postcode%><br />
+	<%=f.label :postplace, "Poststed"%>
+	<%=f.text_field :postplace%><br />
+	<%=f.label :address, "Adresse"%>
+	<%=f.text_field :address%><br />
+	<%= f.label :birthdate, "Fødselsdato"%>
+	<%= f.text_field :birthdate %><br />
+	</fieldset>
+	<%= f.submit "Registerer!"%>
+<% end %>
+

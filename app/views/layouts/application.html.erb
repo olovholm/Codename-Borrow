@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Borrow</title>
+  <title>Borrow</title>	
 	<%= stylesheet_link_tag		 "blueprint/print", :media => "print" %>
 	<%= stylesheet_link_tag		 "blueprint/screen", :media => "screen"%>
 	<%= stylesheet_link_tag		 "borrow"%>
@@ -9,23 +9,42 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="container">
 	<nav id="top_menu">
 		<ul>
-			<li><%= link_to "Registerer", :controller => "user", :action => "register"%></li>
+			<li><%= link_to "Registerer", :controller => "user", :action => "new"%></li>
 			<li><%= link_to "Logg inn", :controller => "user", :action => "login" %></li>
 		</ul>
 	</nav>
+	<header>
+		<h1><%= link_to "Byttelåne", :controller => "pages"%></h1>
+	</header>
 	<div id="wrapper">
-		<header>
-			<h1>Byttelåne</h1>
-		</header>
-
-<%= yield %>
-
+		<nav id="main_nav">
+			<ul>
+				<li><%= link_to "Hva er byttelåne?", :controller => "pages", :action =>"om"%></li>
+				<li><%= link_to "Finn noe kult", :controller => "pages", :action => "topp"%></li>
+				<li><%= link_to "Bli med", :controller => "user", :action => "register"%></li>
+			</ul>
+		</nav>
+		<%= "<div class='success'>#{flash[:success]}</div>".html_safe if not flash[:success].nil?%>
+		<%= "<div class='notice'>#{flash[:notice]}</div>".html_safe if not flash[:notice].nil?%>
+		<%= "<div class='error'>#{flash[:error]}</div>".html_safe if not flash[:error].nil?%>
+		<article>
+		<%= yield %>
+		</article>
 	</div>
 	<footer>
-	<p>This page is made by Ola Loevholm</p>	
+	<nav>
+		<ul>
+			<li><%= link_to "Om siden",:controller => "pages", :action => "om"%></li>
+			<li><%= link_to "Hvorfor byttelåne", :controller => "pages", :action => "hvorfor"%></li>
+			<li><%= link_to "Kontakt oss", :controller => "pages", :action => "kontakt"%></li>
+		</ul>
+	</nav>
+		<p>This page is made by Ola Loevholm</p>
 	</footer>
+</div>
 
 </body>
 </html>

@@ -49,8 +49,16 @@ Borrow::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => 'pages#index'
-   match "user/register" =>  "user#register"
    match "user/login" =>  "user#login"
+   match "pages/om" => "pages#om"
+   match "pages/topp" => "pages#topp"
+   match "pages/referanser" => "pages#referanser"
+   post "user/create"
+   get "user/new"
+   get "user/register"
+   get "pages/hvorfor"
+   get "pages/kontakt"
+   get "user/home"
 
   # See how all your routes lay out with "rake routes"
 

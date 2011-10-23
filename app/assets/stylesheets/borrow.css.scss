@@ -6,10 +6,21 @@
 	box-shadow: 1px 1px 2px #000;
 }
 
+@mixin invert_bshadow{
+	box-shadow: -2px -2px 1px #000;
+	
+}
+
 @mixin round {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+
+@mixin total_round {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 @mixin link {
@@ -21,15 +32,29 @@
 	text-align: center;
 }
 
+@mixin button_trans{
+	
+}
+
 /*
 	Main element styles
 */
 
+html{
+	height:100%;
+}
 
 body {
 	margin: 0;
 	padding: 0;
 	background:#D4D5DE;
+	height:100%;
+
+}
+
+#container {
+   min-height:100%;
+   position:relative;
 }
 
 #top_menu {
@@ -46,9 +71,6 @@ body {
 	
 }
 
-#top_menu ul {
-	
-}
 
 #top_menu ul li{
 	float:left;
@@ -73,48 +95,161 @@ body {
 	padding:10px;
 	@include shadow;
 	@include round;
+	min-height:100%;
+	height:100%;
+	padding-bottom:8em;
+	
+}
+
+header {
+	background: #000;	
 }
 
 header h1 {
-	@include center;
+	text-align:center;
+	padding:10px;
+
+}
+
+header h1 a {
+	@include link;
+	color: #AAA;
+	text-shadow: 2px 1px 1px #FFF;
+}
+
+header h1 a:hover {
+	color:#555	;
 }
 
 article{
-	margin: 10px;
+	margin: 25px;
 	padding:5px;
-	text-align:center;
 	font-size:1.2em;
-	position:relative;
 	overflow:auto;
 }
+
+
 #wrapper h2{
 	@include center;
 }
 
-article p{ 
-	width:350px;
-	padding:10px;
+#main_nav{
+	@include center;
+}
+
+#main_nav li {
+	list-style:none;
+	display:inline;
+	padding: 0 10px 0;
 	
 }
 
-article p:nth-child(even){
-	float:right;
-	clear:left;
+#main_nav a{
+	text-decoration:none;
+	color: #000;
+	font-size:1.4em;
+	border-bottom: 1px dashed #000;
 }
 
-article p:nth-child(odd){
-	float:left;
+#main_nav a:hover{
+	border-bottom: none;
+	border-bottom:1px solid #000; 
+}
+
+article p{ 
+	width:500px;
+	margin:10px;
+	padding:5px;
 	
 }
 
 
 footer{
+	position:absolute;
 	clear:both;
 	background: #000;
 	color:#FFF;
 	width:100%;
-	margin: 20px 0 0;
-	padding: 0;
-	height:100%;
-	@include center;
+	margin: 50px 0 0;
+	bottom: 0;
+	text-align:center;
+	height:8em;
+}
+
+footer nav ul li{
+	display:inline;
+	padding: 0 10px 0;
+}
+
+footer nav ul li a {
+	@include link
+}
+
+/*
+	Classes
+*/
+
+.button {
+	display:inline-block;
+	text-align:center;
+	width:300px;
+	float:right;
+	padding:0;
+	margin:0;
+}
+
+.button a{
+	display:inline-block;
+	padding:20px;
+	width:200px;
+	@include total_round;
+	@include button_trans;
+	text-decoration:none;
+	font-size:1.4em;
+	@include shadow;
+}
+
+.button a:hover{
+	@include invert_bshadow;
+}
+
+.red a {
+	background: #F00;
+	color:#FFF;
+}
+
+.green a{
+	background: #0F0;
+	color:#FFF;
+}
+
+
+/* Form style*/
+article form{
+	width:600px;
+	margin: 0 auto 0;
+	padding:5px;
+	font-size:1.1em;
+	padding:5px;
+}
+
+article form label {
+	position:relative;
+	clear:left;
+	width:10em;
+	margin-right:20px;
+	float:left;
+	left:3px;
+}
+
+article form input{
+	font-size:1.1em;
+	position:relative;
+}
+ article form input p.response {
+	
+}
+
+article form input:focus{
+	@include shadow
 }
