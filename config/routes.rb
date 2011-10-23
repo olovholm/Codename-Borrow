@@ -59,6 +59,7 @@ Borrow::Application.routes.draw do
    get "pages/hvorfor"
    get "pages/kontakt"
    get "user/home"
+   get "user/logout"
 
   # See how all your routes lay out with "rake routes"
 

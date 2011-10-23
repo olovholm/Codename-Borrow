@@ -11,11 +11,13 @@
 <body>
 <div id="container">
 	<nav id="top_menu">
-		<ul>
-			<li><%= link_to "Registerer", :controller => "user", :action => "new"%></li>
-			<li><%= link_to "Logg inn", :controller => "user", :action => "login" %></li>
-		</ul>
+		<% if session[:username] && session[:user_id]%>
+			<%= render :partial => "shared/logged_in" %>
+		<% else %>
+		 	<%=	render :partial => "shared/not_logged_in" %>
+		<% end %>
 	</nav>
+			
 	<header>
 		<h1><%= link_to "Byttelåne", :controller => "pages"%></h1>
 	</header>

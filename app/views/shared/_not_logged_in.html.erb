@@ -1,0 +1,12 @@
+<ul>
+	<li><%= link_to "Registerer", :controller => "user", :action => "new"%></li>
+	<li><a href="/user/login" id="login_link"> Logg inn</a> </li>
+</ul>
+
+<%= form_tag '/user/login', :method => 'post', :id => "login_form"  do %>
+<%= label_tag(:username, "Brukernavn")%>
+<%= text_field_tag(:username)%>
+<%= label_tag(:password, "Passord")%>
+<%= password_field_tag(:password)%>
+<%= submit_tag("Logg inn!")%>	
+<% end %>

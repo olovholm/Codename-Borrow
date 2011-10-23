@@ -8,3 +8,47 @@
 //= require jquery_ujs
 //= require_tree .
 
+/*
+	Methods for the program
+*/
+
+function login() {
+	var dataString = 'username' + username + '&password' + password;
+	$.ajax({
+		type: "POST", 
+		url: "/user/login",
+		data: dataString,
+		success: function() {
+			$("#login_form").append("<p>This did work</p>");
+		}	
+	});
+	return false;
+}
+
+/*
+	Initializing methods
+*/
+
+$('document').ready(function() {
+	/*
+		Start-up methods
+	*/
+	$('#login_form').hide();
+	$('#login_link').html("<a href='#' id='login_link'> Logg inn!</a>");
+	
+	/*
+		Triggered methods
+	*/
+	
+	$('#login_link').click(function(){
+		$('#login_form').toggle("fast");
+	});
+	
+	$('.success, .error, .notice').click(function(){
+		$(this).fadeOut('slow');
+	});
+	
+	$('#login_link').submit(login);
+});
+
+
