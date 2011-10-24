@@ -10,6 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20111020134428) do
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.string   "email"
+    t.string   "fullname"
+    t.string   "address"
+    t.string   "postcode"
+    t.datetime "birthdate"
+    t.boolean  "activated"
+    t.boolean  "visible"
+    t.float    "langitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
