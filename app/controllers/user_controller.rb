@@ -8,6 +8,10 @@ class UserController < ApplicationController
     @user = User.new
   end
   
+  def glemt 
+  
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
