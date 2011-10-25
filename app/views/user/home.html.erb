@@ -1,1 +1,6 @@
-<h2>This is home</h2>
+<% if @user %>
+	<h2><%= @user.fullname || @user.username%></h2>
+	
+<% else %>
+	<h2>Velkommen til ditt fremtidige hjem</h2>
+<% end %>

@@ -1,1 +1,11 @@
-<h2>This is login</h2>
+<fieldset>
+	<legend>Logg inn</legend>
+<%= form_tag '/user/login', :method => 'post' do %>
+<%= label_tag(:username, "Brukernavn")%>
+<%= text_field_tag(:username)%><br / >
+<%= label_tag(:password, "Passord")%>
+<%= password_field_tag(:password)%> <br />
+<%= submit_tag("Logg inn!")%><br /><%= link_to ("Glemt passordet?"), :controller => "user", :action => "glemt"%>
+</fieldset>
+<%= link_to ("Ikke medlem?"), :controller => "user", :action => "register"%>
+<% end %>

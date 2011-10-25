@@ -12,11 +12,18 @@ class UserController < ApplicationController
   
   end
   
+  
+  def home 
+    @user = User.find(session[:user_id])
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Brukeren din er lagret. Sjekk e-posten din for bekreftelseslink"
-      redirect_to :action => "home"
+      Notifier.welcome(@user).deliver
+      redirect_to :action => "welcome"
+      session[:register_success] = @user.username
     else 
       flash[:error] = "<em>Vi kom over noen feil naar vi skulle lagre brukeren din:</em><br />"
       @user.errors.each {|attr,msg| flash[:error] << "#{attr} #{msg} <br/>" }
@@ -44,6 +51,15 @@ class UserController < ApplicationController
     reset_session 
     flash[:success] = "Du er naa fullstendig logget ut"
     redirect_to :controller => "pages", :action => "index"
+    
+  end
+  
+  def welcome
+    if session[:register_success]
+      @username = session[:register_success]
+    else
+      @username = nil
+    end
     
   end
   
