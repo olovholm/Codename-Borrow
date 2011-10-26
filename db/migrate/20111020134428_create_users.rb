@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime "birthdate"
       t.boolean "activated"
       t.boolean "visible"
-      t.float "langitude"
+      t.float "latitude"
       t.float "longitude"
 
       t.timestamps

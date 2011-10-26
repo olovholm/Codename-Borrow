@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20111020134428) do
     t.datetime "birthdate"
     t.boolean  "activated"
     t.boolean  "visible"
-    t.float    "langitude"
+    t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"

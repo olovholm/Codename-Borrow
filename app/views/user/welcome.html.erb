@@ -1,5 +1,6 @@
 <% if @username %>
 	<h2>Velkommen ombord, <%= @username%></h2>
 <% else %>
-	<h2>Din lille luring</h2>
+	<h2>Du er ikke logget inn og får gleden av å se Hamar</h2>
+	<img src="http://maps.googleapis.com/maps/api/staticmap?center=Holsetgata&zoom=14&size=400x400&maptype=roadmap&sensor=false" alt="Your estimated location" width="512" height="512"/>
 <% end 	%>

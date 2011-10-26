@@ -1,17 +1,30 @@
 require 'digest/sha1'
-
 class User < ActiveRecord::Base
   
   
   attr_accessor :email_confirmation, :password, :password_confirmation, :postplace
   attr_protected :id, :salt
   validates_presence_of :username, :password, :email, :postcode, :birthdate, :on => "create"
+  validates_presence_of :place, :on => "update"
   validates_confirmation_of :password, :email
   validates_uniqueness_of :email, :username
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   
-  geocoded_by :address
+  geocoded_by :place
   after_validation :geocode
+  
+  scope :search, lambda {|query| where(["fullname LIKE ?", "%#{query}%"])}
+  
+  
+  def place
+     self.address unless self.address.nil?
+     self.postplace unless self.postplace.nil?
+     self.find_city
+  end
+  
+  def find_city
+    "Tokyo"
+  end
   
   
   def self.random_string(len)

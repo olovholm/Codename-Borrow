@@ -14,7 +14,13 @@ class UserController < ApplicationController
   
   
   def home 
-    @user = User.find(session[:user_id])
+    if not session[:user_id].nil?
+      @user = User.find(session[:user_id])
+    else 
+      redirect_to :controller => "user", :action => "new"
+      flash[:notice] = "Vi sendte deg hit slik at du kan få bli med i dag, og få tilgang til din egen hjemside"
+    
+    end
   end
   
   def create
