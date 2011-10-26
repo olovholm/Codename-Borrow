@@ -5,4 +5,7 @@
  *= require_self
  *= require_tree . 
  *= require_tree ../../../vendor/assets/stylesheets
+ *= require "borrow"
+ *= require "pages"
+ *= require "user"
 */
