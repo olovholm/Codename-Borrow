@@ -18,8 +18,7 @@ class UserController < ApplicationController
       @user = User.find(session[:user_id])
     else 
       redirect_to :controller => "user", :action => "new"
-      flash[:notice] = "Vi sendte deg hit slik at du kan få bli med i dag, og få tilgang til din egen hjemside"
-    
+      flash[:notice] = "Vi sendte deg hit slik at du kan faa bli med i dag, og faa tilgang til din egen hjemside"
     end
   end
   
