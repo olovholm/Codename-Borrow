@@ -1,0 +1,28 @@
+<h2>Legg til ny bok</h2>
+
+<%= form_tag("/search", :method => "get")%>
+	<fieldset>
+		<legend>Finn eksisterende</legend>
+		<%= label_tag(:q, "Søk etter:") %>
+		  <%= text_field_tag(:q) %>
+		  <%= submit_tag("Søk") %>
+	</fieldset>
+	</form>
+
+<%= form_for @book, :url => "create" do |b| %>
+	<fieldset>
+		<legend>Ny bok</legend>
+		<%= b.label :name, "Bokens navn"%>
+		<%= b.text_field :name %>
+		<%= b.label :author, "Forfatter"%>
+		<%= b.text_field :author%>
+		<%= b.label :publisher, "Forlag"%>
+		<%= b.text_field :publisher%>
+		<%= b.label :language, "Språk"%>
+		<%= b.text_field :language%>
+		<%= b.label :isbn, "ISBN"%>
+		<%= b.text_field :isbn %>
+	</fieldset>
+	<%= b.submit "Lagre ny bok i samling!"%>
+
+<% end %>

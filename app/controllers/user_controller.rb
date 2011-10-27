@@ -12,6 +12,11 @@ class UserController < ApplicationController
   
   end
   
+  def list 
+    @user = User.find(session[:user_id])
+    @books = @user.books
+  end
+  
   
   def home 
     if not session[:user_id].nil?
@@ -25,8 +30,8 @@ class UserController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Brukeren din er lagret. Sjekk e-posten din for bekreftelseslink"
-      Notifier.welcome(@user).deliver
+      flash[:success] = "Brukeren din er lagret. Sjekk e-posten din for bekreftelseslink"
+      #Notifier.welcome(@user).deliver
       redirect_to :action => "welcome"
       session[:register_success] = @user.username
     else 

@@ -1,0 +1,25 @@
+
+<h2>Dine ting</h2>
+<article>
+	<h4>Bøker</h4>
+	<table>
+		<tr>
+			<th>Navn:</th>
+			<th>Type:</th>
+			<th>Av:</th>
+			<th>Lagt til:</th>
+			<th>Handlinger</th>
+		</tr>
+		<% @books.each do |b| %>
+		<tr>
+			<td><%= b.name %></td>
+			<td><%= b.class%></td>
+			<td><%= b.author %></td>
+			<td> I dag </td>
+			<td> Actions 1 2 3</td>
+		</tr>
+		<% end %>
+	</table>
+	<p><%= link_to "Legg til en ny bok i samlingen din", :controller => "books", :action => "new" %></p>
+	
+</article>
