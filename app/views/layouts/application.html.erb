@@ -12,9 +12,9 @@
 <div id="container">
 	<nav id="top_menu">
 		<% if session[:username] && session[:user_id]%>
-			<%= render :partial => "shared/logged_in" %>
+			<%= render :partial => "shared/top_logged_in" %>
 		<% else %>
-		 	<%=	render :partial => "shared/not_logged_in" %>
+		 	<%=	render :partial => "shared/top_not_logged_in" %>
 		<% end %>
 	</nav>
 			
@@ -23,11 +23,11 @@
 	</header>
 	<div id="wrapper">
 		<nav id="main_nav">
-			<ul>
-				<li><%= link_to "Hva er byttelåne?", :controller => "pages", :action =>"om"%></li>
-				<li><%= link_to "Finn noe kult", :controller => "pages", :action => "topp"%></li>
-				<li><%= link_to "Bli med", :controller => "user", :action => "register"%></li>
-			</ul>
+			<% if session[:username] && session[:user_id]%>
+				<%= render :partial => "shared/main_logged_in" %>
+			<% else %>
+			 	<%=	render :partial => "shared/main_not_logged_in" %>
+			<% end %>
 		</nav>
 		<%= "<div class='success'>#{flash[:success]}</div>".html_safe if not flash[:success].nil?%>
 		<%= "<div class='notice'>#{flash[:notice]}</div>".html_safe if not flash[:notice].nil?%>

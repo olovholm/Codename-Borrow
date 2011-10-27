@@ -21,13 +21,13 @@ class User < ActiveRecord::Base
      puts "No Address. We continiue"
      self.postplace unless self.postplace.nil?
      puts "No postplace. We continiue"
-     self.postplace = self.find_city(self.postcode)
+     self.postplace = self.class.find_city(self.postcode)
      puts "Will procede with #{self.postplace}, the generated place from postcode"
      self.postplace
   end
   
   def self.find_city(number)
-    file = File.new("#{Rails.root}/assets/data/postoversikt.txt", "r")
+    file = File.new("#{Rails.root}/app/assets/data/postoversikt.txt", "r")
     puts file
     while (line = file.gets)
       place = line.split(/\t/)

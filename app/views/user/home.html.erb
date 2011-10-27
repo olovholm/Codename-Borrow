@@ -1,6 +1,9 @@
 <% unless @user.nil? %>
 	<h2><%= @user.fullname || @user.username%></h2>
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%="#{@user.latitude},#{@user.longitude}"%>&zoom=14&size=400x400&maptype=roadmap&sensor=false" alt="Your estimated location"/>
+	<article>
+	<p><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%="#{@user.latitude},#{@user.longitude}"%>&zoom=14&size=300x300&maptype=roadmap&sensor=false" alt="Your estimated location"/>
+	
+	</article>
 <% else %>
 	<h2>Hello</h2>
 <% end %>
