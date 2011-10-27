@@ -244,6 +244,15 @@ footer nav ul li a {
 	padding:10px;
 }
 
+.smaller {
+	font-size:0.8em;
+	
+}
+
+.zebra tr:nth-child(2n+1){
+	background-color:#CCCCFF;
+}
+
 
 /* Form style*/
 article form{

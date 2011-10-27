@@ -68,6 +68,8 @@ Borrow::Application.routes.draw do
    
    get "books/new"
    get "books/list"
+   get "books/remove"
+   get "books/compare"
    post "books/create"
    match "books"=> "books#list"
 

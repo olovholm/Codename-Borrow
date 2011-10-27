@@ -10,6 +10,17 @@ class BooksController < ApplicationController
     
   end
   
+  def remove
+    @book = Book.find(params[:id])
+    @user = User.find(session[:user_id])
+    @user.books.delete(@book)
+    redirect_to :controller => "user", :action => "list"
+  end
+  
+  def compare
+    #Should find other users that also owns this book. -> In the long run this should be limited to friends
+  end
+  
   def create 
     @book = Book.new(params[:book])
     @user = User.find(session[:user_id])

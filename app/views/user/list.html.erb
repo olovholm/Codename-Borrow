@@ -2,7 +2,7 @@
 <h2>Dine ting</h2>
 <article>
 	<h4>Bøker</h4>
-	<table>
+	<table class="smaller zebra">
 		<tr>
 			<th>Navn:</th>
 			<th>Type:</th>
@@ -16,7 +16,7 @@
 			<td><%= b.class%></td>
 			<td><%= b.author %></td>
 			<td> I dag </td>
-			<td> Actions 1 2 3</td>
+			<td><%= link_to "fjern",:controller => "books", :action => "remove", :id => b.id%></td>
 		</tr>
 		<% end %>
 	</table>

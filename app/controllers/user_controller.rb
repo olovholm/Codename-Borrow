@@ -9,7 +9,8 @@ class UserController < ApplicationController
   end
   
   def glemt 
-  
+    #Should send an email to the person asking for more information. 
+    #Method name in English?
   end
   
   def list 
