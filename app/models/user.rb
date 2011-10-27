@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
   
   def self.find_city(number)
-    file = File.new("#{Rails.root}/app/assets/data/postoversikt.txt", "r")
+    file = File.new("#{Rails.root}/assets/data/postoversikt.txt", "r")
     puts file
     while (line = file.gets)
       place = line.split(/\t/)
