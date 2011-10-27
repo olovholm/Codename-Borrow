@@ -62,6 +62,7 @@ Borrow::Application.routes.draw do
    get "user/logout"
    get "user/glemt"
    get "user/welcome"
+   match "user/postplace_ajax/:id" => "user#postplace_ajax"
 
   # See how all your routes lay out with "rake routes"
 

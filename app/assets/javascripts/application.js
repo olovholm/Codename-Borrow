@@ -25,6 +25,7 @@ function login() {
 	return false;
 }
 
+
 /*
 	Initializing methods
 */
@@ -46,6 +47,28 @@ $('document').ready(function() {
 	
 	$('.success, .error, .notice').click(function(){
 		$(this).fadeOut('slow');
+	});
+	
+	$('#user_postcode').focusout(function(){
+		var code = $(this).val();
+		if(code.length == 4){
+		var request = $.ajax({
+		  url: "postplace_ajax/"+code,
+		  data: code,
+		  type: "GET",
+		  dataType: "text", 
+		  success: function(data) {
+			$('#user_postplace').val(data);
+			$("#user_postplace").attr("disabled", "disabled");
+			
+		}
+		});
+		
+		}//End on 4 digits postcode condition
+		
+	
+		
+		
 	});
 	
 	$('#login_link').submit(login);

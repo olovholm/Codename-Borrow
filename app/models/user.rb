@@ -18,14 +18,23 @@ class User < ActiveRecord::Base
   
   def place
      self.address unless self.address.nil?
+     puts "No Address. We continiue"
      self.postplace unless self.postplace.nil?
-     self.find_city
+     puts "No postplace. We continiue"
+     self.postplace = self.find_city(self.postcode)
+     puts "Will procede with #{self.postplace}, the generated place from postcode"
+     self.postplace
   end
   
-  def find_city
-    "Tokyo"
+  def self.find_city(number)
+    file = File.new("#{Rails.root}/app/assets/data/postoversikt.txt", "r")
+    puts file
+    while (line = file.gets)
+      place = line.split(/\t/)
+      return place[1] if place[0] == number
+    end
+      nil
   end
-  
   
   def self.random_string(len)
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
