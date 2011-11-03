@@ -1,5 +1,6 @@
 --- 
 books.css: books-1c9609bc58b1e77c196de29021583379.css
+node_share.png: node_share-f44182a1efec8e9f471ffca7adbe6747.png
 jquery.min.js: jquery.min-ac6382033c1c5e27ebbc5a5a0597ccb9.js
 grid.png: grid-a3e8e6a6df57000ec00b24e8ec862608.png
 user.css: user-1c9609bc58b1e77c196de29021583379.css
@@ -18,10 +19,11 @@ reset.css: reset-28fd532509fb89d88e795634caa33d02.css
 forms.css: forms-536477fb92aa03d443d64522eafa772f.css
 rails.png: rails-e4b51606cd77fda2615e7439907bfc92.png
 vendor.css: vendor-56cf1e77dd0ddf0a1400ac0681b4729c.css
-application.css: application-26b1455d371f9304a6a8c76cbe9175c0.css
+application.css: application-171c9fac857c889da65fa0c367f73cba.css
+open_share.png: open_share-0d1a0731b6624f9f93aa41269ab6f808.png
 postoversikt.txt_old: postoversikt-0315fa4c72024a73126067f65edeede4.txt_old
 ie.css: ie-e74efa906a10b340155784d2bad8c799.css
 pages.js: pages-d6c03004c3644316b353c7381326118a.js
 jquery-ui.js: jquery-ui-1257779252765a9d537d315acc189907.js
 application.js: application-7149ef7ad9e5a96cb506aff830111fc4.js
-borrow.css: borrow-26b1455d371f9304a6a8c76cbe9175c0.css
+borrow.css: borrow-171c9fac857c889da65fa0c367f73cba.css
