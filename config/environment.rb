@@ -7,15 +7,13 @@ require File.expand_path('../application', __FILE__)
 Borrow::Application.initialize!
 
 # Mail configuration.
-ActionMailer::Base.delivery_method = :smtp  
-ActionMailer::Base.perform_deliveries = true  
-ActionMailer::Base.raise_delivery_errors = true   
-
-# Load mail settings
 ActionMailer::Base.smtp_settings = {
-  :address  => "smtp.someserver.net",
-  :port  => 25,
-  :user_name  => "someone@someserver.net",
-  :password  => "mypass",
-  :authentication  => :login
-}
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'your.host.name',
+  :user_name            => ENV['GMAIL_SMTP_USER'],
+  :password             => ENV['GMAIL_SMTP_PASSWORD'],
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  }
+
+

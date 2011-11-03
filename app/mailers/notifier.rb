@@ -1,10 +1,11 @@
 class Notifier < ActionMailer::Base
-  default :from => "from@example.com",
-          :return_path => "system@example.com"
+  default :from  => "ola@lovholm.net"
+
           
-  def welcome(recipient)
-    @user = recipient
-    mail(:to => recipient.email)
+  def welcome(user)
+    @user = user
+    @url = "http://olovholm001.herokuapp.com"
+    mail(:to => user.email, :subject => "Velkommen til borrow. Aktiverings mail" )
   end
   
 end

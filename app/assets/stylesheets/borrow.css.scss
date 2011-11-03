@@ -172,7 +172,7 @@ article{
 }
 
 article p{ 
-	width:500px;
+	width:700px;
 	margin:10px;
 	padding:5px;
 	
@@ -252,6 +252,36 @@ footer nav ul li a {
 .zebra tr:nth-child(2n+1){
 	background-color:#CCCCFF;
 }
+
+.imagetextbox {
+	width:700px;
+	display:block;
+	background-color:rbga(100, 100, 100, .2);
+	position: relative;
+	clear: both;
+	margin:10px;
+	padding:5px;
+}
+
+.imagetextbox > h4 {
+	text-align: center;
+}
+
+.imagetextbox > p {
+	float:right;
+	width:500px;
+	
+}
+
+.imagetextbox > img{
+	float:left;
+	
+}
+
+.thin {
+	width:500px	;
+}
+
 
 
 /* Form style*/
