@@ -19,7 +19,7 @@ function login() {
 		url: "/user/login",
 		data: dataString,
 		success: function() {
-			$("#login_form").append("<p>This did work</p>");
+			$("login_form").append("<p>This did work</p>");
 		}	
 	});
 	return false;

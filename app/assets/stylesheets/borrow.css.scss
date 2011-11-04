@@ -36,6 +36,7 @@
 	
 }
 
+
 /*
 	Main element styles
 */
@@ -128,12 +129,14 @@ header h1 {
 
 header h1 a {
 	@include link;
-	color: #AAA;
-	text-shadow: 2px 1px 1px #FFF;
+	color: #0695FF;
+	font-size:1.3em;
 }
 
 header h1 a:hover {
-	color:#555	;
+	text-shadow: 0 0 10px #0695FF;
+	font-size:1.3em;
+	color:#0695FF;
 }
 
 article{
@@ -222,20 +225,22 @@ footer nav ul li a {
 	text-decoration:none;
 	font-size:1.4em;
 	@include shadow;
+	text-shadow: 1px 1px 1px #777;
 }
 
 .button a:hover{
 	@include invert_bshadow;
+	text-shadow: 1px 1px 1px #777;
 }
 
 .red a {
 	background: #E2592E;
-	color:#FFF;
+	color:#333;
 }
 
 .green a{
-	background: #70964D;
-	color:#FFF;
+	background: #19FF43;
+	color:#333;
 }
 
 .intro {

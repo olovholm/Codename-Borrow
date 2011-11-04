@@ -1,0 +1,31 @@
+<h2>Kontakt</h2>
+
+<article>
+	
+
+<%= form_tag %>
+<fieldset>
+	<legend>Kontaktinformasjon</legend>
+	
+<% unless @user.nil?%>
+	<%= label_tag "navn" %>
+	<%= text_field_tag "navn", nil, :placeholder => @user.username %>
+	<%= label_tag "epost" %>
+	<%= email_field_tag "epost",nil,  :placeholder => @user.email %>
+<% else %>
+	<%= label_tag "navn" %>
+	<%= text_field_tag "navn" %>
+	<%= label_tag "epost" %>
+	<%= email_field_tag "epost" %>
+<% end%>
+	
+
+</fieldset>
+<fieldset>
+	<legend>Tilbakemelding</legend>
+	<%= label_tag "message" %><br />
+	<%= text_area_tag "message" %> <br />
+	<%= submit_tag "Send tilbakemelding"%>
+</fieldset>
+
+</article>
