@@ -72,6 +72,8 @@ Borrow::Application.routes.draw do
    get "books/compare"
    post "books/create"
    match "books"=> "books#list"
+   
+   get "ajax/find_books"
 
   # See how all your routes lay out with "rake routes"
 

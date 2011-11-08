@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     @user = User.find(session[:user_id]) if session[:user_id]
     
   end
+  
+  def topp
+    @books = Book.most_popular(10)
+  end
 end

@@ -225,12 +225,12 @@ footer nav ul li a {
 	text-decoration:none;
 	font-size:1.4em;
 	@include shadow;
-	text-shadow: 1px 1px 1px #777;
+	text-shadow: 1px 1px 1px #FFF	;
 }
 
 .button a:hover{
 	@include invert_bshadow;
-	text-shadow: 1px 1px 1px #777;
+	text-shadow: 1px 1px 1px #FFF;
 }
 
 .red a {
@@ -291,7 +291,7 @@ footer nav ul li a {
 
 /* Form style*/
 article form{
-	width:600px;
+	width:700px;
 	margin: 0 auto 0;
 	padding:5px;
 	font-size:1.1em;
@@ -301,7 +301,7 @@ article form{
 article form label {
 	position:relative;
 	clear:left;
-	width:10em;
+	width:200px;
 	margin-right:20px;
 	float:left;
 	left:3px;
@@ -310,7 +310,14 @@ article form label {
 article form input{
 	font-size:1.1em;
 	position:relative;
+	width:350px;
 }
+
+article form input[type="submit"] {
+	width:200px;
+	font-size:1.2em;
+}
+
  article form input p.response {
 	
 }
