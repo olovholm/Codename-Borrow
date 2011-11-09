@@ -9,7 +9,19 @@ class AjaxController < ApplicationController
     else
       books = nil
     end
-      list = books.map {|u| "#{u.name} - #{u.author}"} unless books.nil?
-    render :json =>  list
+      list = books.map {|b| Hash["id" =>  b.id, "value" =>  b.id, "label" => "#{b.name} av #{b.author}", "name" => b.name, "author" => b.author]}
+      render :json =>  list
   end
+  
+  def add_book 
+    if session[:user_id] && params[:book_id]
+      @book = Book.where("id = ?", params[:book_id])
+      User.find(session[:user_id]).books << @book
+      render :text => "La boken \"#{@book[0].name}\" av \"#{@book[0].author}\" til i samlingen din"
+    else 
+      render :text => "Noe gikk galt. Ikke din skyld dog"
+    end
+  end
+      
+  
 end

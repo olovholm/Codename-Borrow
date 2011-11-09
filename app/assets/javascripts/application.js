@@ -46,7 +46,7 @@ $('document').ready(function() {
 		$('#login_form').toggle("fast");
 	});
 	
-	$('.success, .error, .notice').click(function(){
+	$('.success, .error, .notice, .feedback').click(function(){
 		$(this).fadeOut('slow');
 	});
 	

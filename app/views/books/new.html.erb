@@ -1,11 +1,12 @@
 <h2>Legg til ny bok i samlingen din</h2>
 
-<%= form_tag("/search", :method => "get")%>
+<p id="feedback" class="notice"></p>
+
+<%= form_tag("/search", :method => "get", :id => "search_form")%>
 	<fieldset>
 		<legend>Finn eksisterende</legend>
 		<%= label_tag(:q_book, "Søk etter:") %>
 		  <%= text_field_tag(:q_book) %>
-		  <%= submit_tag("Søk") %>
 	</fieldset>
 	</form>
 
