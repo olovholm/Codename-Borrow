@@ -1,7 +1,7 @@
 <% unless @user.nil? %>
 	<h2><%= @user.fullname || @user.username%></h2>
 	<article>
-	<p><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%="#{@user.latitude},#{@user.longitude}"%>&zoom=14&size=300x300&maptype=roadmap&sensor=false" alt="Your estimated location"/>
+	<p><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%="#{@user.latitude},#{@user.longitude}"%>&zoom=15&size=350x350&maptype=roadmap&markers=color:blue%7Clabel:U%7C<%="#{@user.latitude},#{@user.longitude}"%>&sensor=false" alt="Your estimated location"/>
 	
 	</article>
 <% else %>

@@ -32,9 +32,25 @@
 	text-align: center;
 }
 
-@mixin button_trans{
+@mixin button-gloss {
+	
+//	background-image: linear-gradient(bottom, rgba(211,179,188) 34%, rgba(151,173,173) 75%);
+//	background-image: -o-linear-gradient(bottom, rgba(211,179,188) 34%, rgba(151,173,173) 75%);
+//	background-image: -moz-linear-gradient(bottom, rgba(211,179,188) 34%, rgba(151,173,173) 75%);
+//	background-image: -webkit-linear-gradient(bottom, rgba(211,179,188) 34%, rgba(151,173,173) 75%);
+//	background-image: -ms-linear-gradient(bottom, rgba(211,179,188) 34%, rgba(151,173,173) 75%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.34, rgba(255,255,255,0.100)),
+		color-stop(0.75, rgba(255,255,255,0.10))
+	);
 	
 }
+
+
 
 
 /*
@@ -221,7 +237,7 @@ footer nav ul li a {
 	padding:20px;
 	width:200px;
 	@include total_round;
-	@include button_trans;
+	@include button-gloss;
 	text-decoration:none;
 	font-size:1.4em;
 	@include shadow;
@@ -234,12 +250,12 @@ footer nav ul li a {
 }
 
 .red a {
-	background: #E2592E;
+	background: #BF2928;
 	color:#333;
 }
 
 .green a{
-	background: #19FF43;
+	background: #3EC75D;
 	color:#333;
 }
 
@@ -298,8 +314,7 @@ footer nav ul li a {
 /* Form style*/
 article form{
 	width:700px;
-	margin: 0 auto 0;
-	padding:5px;
+	margin: 0 auto 50px;
 	font-size:1.1em;
 	padding:5px;
 }
@@ -319,8 +334,9 @@ article form input{
 	width:350px;
 }
 
-article form input[type="submit"] {
-	width:200px;
+article form input[type="submit"]{
+	margin-left: 250px;
+	width:150px;
 	font-size:1.2em;
 }
 

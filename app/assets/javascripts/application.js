@@ -54,7 +54,7 @@ $('document').ready(function() {
 		var code = $(this).val();
 		if(code.length == 4){
 		var request = $.ajax({
-		  url: "postplace_ajax/"+code,
+		  url: "/ajax/find_postplace/"+code,
 		  data: code,
 		  type: "GET",
 		  dataType: "text", 

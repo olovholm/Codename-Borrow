@@ -64,7 +64,6 @@ Borrow::Application.routes.draw do
    get "user/welcome"
    get "user/list"
    match "user" => "user#home"
-   match "user/postplace_ajax/:id" => "user#postplace_ajax"
    
    get "books/new"
    get "books/list"
@@ -75,6 +74,7 @@ Borrow::Application.routes.draw do
    
    get "ajax/find_books"
    get "ajax/add_book"
+   match "ajax/find_postplace/:id" => "ajax#find_postplace"
 
   # See how all your routes lay out with "rake routes"
 

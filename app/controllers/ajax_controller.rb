@@ -22,6 +22,18 @@ class AjaxController < ApplicationController
       render :text => "Noe gikk galt. Ikke din skyld dog"
     end
   end
+  
+  
+  def find_postplace
+    puts "Method got called with params id: #{params[:id]}"
+    if !params[:id].nil? && params[:id].length == 4
+      name = User::find_city(params[:id])
+      render :text => name
+    else
+      flash[:error] = "Wow, hold your horses. That was not a legal request"
+      redirect_to :controller => "pages", :action => "index"
+    end
+  end
       
   
 end

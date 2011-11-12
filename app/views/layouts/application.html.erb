@@ -29,9 +29,9 @@
 			 	<%=	render :partial => "shared/main_not_logged_in" %>
 			<% end %>
 		</nav>
-		<%= "<div class='success'>#{flash[:success]}</div>".html_safe if not flash[:success].nil?%>
-		<%= "<div class='notice'>#{flash[:notice]}</div>".html_safe if not flash[:notice].nil?%>
-		<%= "<div class='error'>#{flash[:error]}</div>".html_safe if not flash[:error].nil?%>
+		<%= "<div class='success'>#{flash[:success]}</div>".html_safe unless flash[:success].nil?%>
+		<%= "<div class='notice'>#{flash[:notice]}</div>".html_safe unless flash[:notice].nil?%>
+		<%= "<div class='error'>#{flash[:error]}</div>".html_safe unless flash[:error].nil?%>
 		<article>
 		<%= yield %>
 		</article>

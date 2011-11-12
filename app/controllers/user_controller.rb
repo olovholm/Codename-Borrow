@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, :only => [:new, :create, :register, :login, :welcome]
+  
   def register
     redirect_to :action => "new"
   end
@@ -20,7 +23,7 @@ class UserController < ApplicationController
   
   
   def home 
-    if not session[:user_id].nil?
+    if not session[:user_id] && [:user_id].nil?
       @user = User.find(session[:user_id])
     else 
       redirect_to :controller => "user", :action => "new"
@@ -36,21 +39,20 @@ class UserController < ApplicationController
       redirect_to :action => "welcome"
       session[:register_success] = @user.username
     else 
-      flash[:error] = "<em>Vi kom over noen feil naar vi skulle lagre brukeren din:</em><br />"
+      flash[:error] = "<em>Vi kom over noen feil når vi skulle lagre brukeren din:</em><br />"
       @user.errors.each {|attr,msg| flash[:error] << "#{attr} #{msg} <br/>" }
       render :action => "new"
     end
   end
   
   def login
-
     if params[:username] && params[:password]
       @user = User.authenticate(params[:username], params[:password])
       if @user.nil?
-        flash[:error] = "You could not be logged in"
+        flash[:error] = "Du kunne ikke logges inn"
         redirect_to :action => "login"
       else
-        flash[:success] = "Du er naa logget inn #{@user.username}"
+        flash[:success] = "Du er nå logget inn #{@user.username}"
         session[:user_id] = @user.id
         session[:username] = @user.username
         redirect_to :action => "home"
@@ -72,16 +74,5 @@ class UserController < ApplicationController
       @username = nil
     end
   end
-  
-  def postplace_ajax
-    puts "Method got called with params id: #{params[:id]}"
-    if !params[:id].nil? && params[:id].length == 4
-      name = User::find_city(params[:id])
-      render :text => name
-    else
-      flash[:error] = "Wow, hold your horses. That was not a legal request"
-      redirect_to :controller => "pages", :action => "index"
-    end
-  end
-  
+    
 end

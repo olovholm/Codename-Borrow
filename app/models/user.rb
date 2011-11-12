@@ -18,13 +18,13 @@ class User < ActiveRecord::Base
   
   
   def place
-     self.address unless self.address.nil?
-     puts "No Address. We continiue"
-     self.postplace unless self.postplace.nil?
-     puts "No postplace. We continiue"
-     self.postplace = self.class.find_city(self.postcode)
-     puts "Will procede with #{self.postplace}, the generated place from postcode"
-     self.postplace
+    placestring = "" #Generates a placestring
+    placestring << self.address unless self.address.nil? #Adds address
+    placestring << " , " #Adds separator for geocode function
+    self.postplace = self.class.find_city(self.postcode) if self.postplace.nil? # Sets postplace if this does not exists, generates from number
+    placestring << self.postplace
+    puts "THIS IS THE PLACE WE ARE LOOKING FOR #{placestring}"
+    return placestring
   end
   
   def self.find_city(number)

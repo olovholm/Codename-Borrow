@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_filter :require_login
   
   def list
     redirect_to :controller => "user", :action => "list"
