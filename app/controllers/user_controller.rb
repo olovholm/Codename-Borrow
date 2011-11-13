@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserController < ApplicationController
   before_filter :require_login
   skip_before_filter :require_login, :only => [:new, :create, :register, :login, :welcome]

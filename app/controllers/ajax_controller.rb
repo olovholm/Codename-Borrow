@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'net/http' #To use methods towards Google
 
 class AjaxController < ApplicationController
