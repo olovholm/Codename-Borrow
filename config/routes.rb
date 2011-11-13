@@ -63,6 +63,7 @@ Borrow::Application.routes.draw do
    get "user/glemt"
    get "user/welcome"
    get "user/list"
+   get "user/add"
    match "user" => "user#home"
    
    get "books/new"
@@ -70,7 +71,8 @@ Borrow::Application.routes.draw do
    get "books/remove"
    get "books/compare"
    post "books/create"
-   match "books"=> "books#list"
+   match "books/show:id"=> "books#show"
+   match "books/list"=> "user#list"
    
    get "ajax/find_books"
    get "ajax/add_book"

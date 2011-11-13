@@ -6,20 +6,18 @@
 
 $('document').ready ->
 	$('#q_book').autocomplete {source: "/ajax/find_books", minLength: 3, select: (event,ui) -> 
-			 $.ajax({
-				type : 'get',
-				url : '/ajax/add_book',
-				data : { book_id : "#{ui.item.id}" },
-				dataType : 'text',
-				success: (data) ->
-					$('#feedback').css("visibility","visible")
-					$('#feedback').text(data)
-					$('#q_book').val('')
+		$.ajax({
+			type : 'get',
+			url : '/ajax/add_book',
+			data : { book_id : "#{ui.item.id}" },
+			dataType : 'text',
+			success: (data) ->
+				$('#feedback').css("visibility","visible")
+				$('#feedback').text(data)
+				$('#q_book').val('')
 			}
-		 }
-		}
-		
-
+			}
+	}
 
 
 	

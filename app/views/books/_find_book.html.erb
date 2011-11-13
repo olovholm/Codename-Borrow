@@ -1,7 +1,5 @@
 <%= form_tag("/books/new", :method => "get", :id => "search_form")%>
-	<fieldset>
-		<%= label_tag(:q_book, "Søk etter:") %>
+		<%= label_tag(:q_book, "Legg til bok:") %>
 		  <%= text_field_tag(:q_book) %>
-			<%= submit_tag("Registerer ny bok")%>
-	</fieldset>
+			<%= submit_tag("Registerer ny")%>
 	</form>
