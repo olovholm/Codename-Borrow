@@ -17,7 +17,7 @@
 			<td><%= b.author %></td>
 			<td> I dag </td>
 			<td>
-				<%= link_to "fjern",:controller => "books", :confirm => "Er du sikker? ", :action => "remove", :id => b.id%>
+				<%= link_to "fjern",:controller => "books", :confirm => "Er du sikker? ", :action => "remove", :remote => true,  :id => b.id%>
 				<%= link_to "vis", :controller => "books", :action => "show", :id => b.id %>
 			</td>
 		</tr>

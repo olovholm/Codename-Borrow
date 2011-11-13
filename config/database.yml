@@ -8,6 +8,7 @@ common: &common
     adapter: postgresql
     username: web
     password: tynset
+    encoding: utf8
 
 development:
   <<: *common

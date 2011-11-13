@@ -1,3 +1,5 @@
+require 'net/http' #To use methods towards Google
+
 class AjaxController < ApplicationController
   def find_books
     if params[:term] && params[:term].length > 2
@@ -34,6 +36,18 @@ class AjaxController < ApplicationController
       redirect_to :controller => "pages", :action => "index"
     end
   end
+  
+  def find_book_data
+    puts "Will try to find book data now"
+    envkey = ENV['GOOGLE_API_KEY'] unless ENV['GOOGLE_API_KEY'].nil? 
+    uri = URI('https://www.googleapis.com/books/v1/volumes')
+    params = {}
+    params = [:intitle => params[:name]] unless params[:name].nil?
       
+    uri << URI.encode_www_form(params)
+    
+    res = Net::HTTP.get_response(uri)
+    puts res if res.is_a?(Net::HTTPSuccess)
+  end
   
 end
