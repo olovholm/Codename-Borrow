@@ -50,5 +50,15 @@ class AjaxController < ApplicationController
     res = Net::HTTP.get_response(uri)
     puts res if res.is_a?(Net::HTTPSuccess)
   end
+
+  def username_exists
+    u =  User.find_by_username(params[:username]) if params[:username]
+    if u.nil?
+      render :text => "false" 
+    else
+      render :text => "true"
+    end  
+  end
+    
   
 end

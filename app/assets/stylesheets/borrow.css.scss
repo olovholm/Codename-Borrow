@@ -1,3 +1,11 @@
+/*
+	SASS variables
+*/
+
+$form_response_green: #8BB58A;
+$form_response_red: #F09F9E;
+
+
 
 /*
 	SASS methods
@@ -368,5 +376,13 @@ article form input:focus{
 	input[type="submit"] {
 		visibility: hidden;
 	}
+}
+
+.form_error {
+	background-color: $form_response_red !important;
+}
+
+.form_success {
+	background-color: $form_response_green !important;
 }
 

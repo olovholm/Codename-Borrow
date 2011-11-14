@@ -76,8 +76,10 @@ Borrow::Application.routes.draw do
    
    get "ajax/find_books"
    get "ajax/add_book"
+   get "ajax/username_exists"
    match "ajax/find_postplace/:id" => "ajax#find_postplace"
    match "ajax/find_book_data/:id" => "ajax#find_book_data"
+   match "ajax/username_exists/:id" => "ajax#username_exists"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_and_belongs_to_many :books
@@ -9,7 +10,11 @@ class User < ActiveRecord::Base
   validates_presence_of :place, :on => "update"
   validates_confirmation_of :password, :email
   validates_uniqueness_of :email, :username
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
+  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "- Feil format på epost"
+  validates_format_of :postcode, :with => /^\d{4}$/, :message => "- Postnummeret må være av norsk type. Fire siffer uten mellomrom"
+  
+  validates_length_of :username, :within => 5..20, :on => :save, :message => "Brukernavn må være mellom 5 og 20 tegn"
+  validates_length_of :password, :within => 5..20, :on => :save, :message => "Brukernavn må være mellom 5 og 20 tegn"
   
   geocoded_by :place
   after_validation :geocode
@@ -60,6 +65,14 @@ class User < ActiveRecord::Base
     return u if User.encrypt(pass, u.salt)==u.hashed_password
     nil
   end
+  
+  
+  def self.find_by_username(username)
+    u = find(:first, :conditions=>["username =?", username])
+    return nil if u.nil? 
+    return u
+  end
+    
   
   
   
