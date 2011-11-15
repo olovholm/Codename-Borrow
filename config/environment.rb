@@ -8,12 +8,12 @@ Borrow::Application.initialize!
 
 # Mail configuration.
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => 'your.host.name',
-  :user_name            => ENV['GMAIL_SMTP_USER'],
-  :password             => ENV['GMAIL_SMTP_PASSWORD'],
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
-
+  :user_name => ENV['sendGridUser'],
+  :password => ENV['sendGridPassword'],
+  :domain => "borrowapp.herokuapp.com",
+  :address => "smtp.sendgrid.net",
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 

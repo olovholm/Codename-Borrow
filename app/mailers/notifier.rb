@@ -4,8 +4,7 @@ class Notifier < ActionMailer::Base
           
   def welcome(user)
     @user = user
-    @url = "http://olovholm001.herokuapp.com"
-    mail(:to => user.email, :subject => "Velkommen til borrow. Aktiverings mail" )
+    mail(:to => @user.email, :subject => "Velkommen til borrow. Aktiverings mail" )
   end
   
 end

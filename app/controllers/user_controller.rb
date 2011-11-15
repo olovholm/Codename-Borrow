@@ -37,7 +37,7 @@ class UserController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Brukeren din er lagret. Sjekk e-posten din for bekreftelseslink"
-      #Notifier.welcome(@user).deliver
+      Notifier.welcome(@user).deliver
       redirect_to :action => "welcome"
       session[:register_success] = @user.username
     else 
