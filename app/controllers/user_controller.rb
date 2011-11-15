@@ -38,7 +38,11 @@ class UserController < ApplicationController
     if @user.save
       flash[:success] = "Brukeren din er lagret. Sjekk e-posten din for bekreftelseslink"
       Notifier.welcome(@user).deliver
-      redirect_to :action => "welcome"
+      begin
+        redirect_to :action => "welcome"
+      rescue Exception=>e
+        puts "SOMETHING IS WRONG WITH THE MAILER"
+      end
       session[:register_success] = @user.username
     else 
       flash[:error] = "<em>Vi kom over noen feil når vi skulle lagre brukeren din:</em><br />"
